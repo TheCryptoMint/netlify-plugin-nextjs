@@ -12,6 +12,12 @@ const Show = ({ show }) => {
 
   return (
     <div>
+      <p>This page uses getStaticProps() to pre-fetch a TV show.</p>
+      <p>
+        Ids 1 and 2 are prerendered and others should show a{' '}
+        <a href="https://nextjs.org/docs/api-reference/data-fetching/get-static-paths#fallback-true">fallback page</a>{' '}
+        while rendering.
+      </p>
       <p>
         Check the network panel for the header <code>x-middleware-date</code> to ensure that it is running
       </p>
@@ -31,7 +37,7 @@ const Show = ({ show }) => {
 
 export async function getStaticPaths() {
   // Set the paths we want to pre-render
-  const paths = [{ params: { id: '3' } }, { params: { id: '4' } }]
+  const paths = [{ params: { id: '1' } }, { params: { id: '2' } }]
 
   // We'll pre-render these paths at build time.
   // { fallback: true } means other routes will be rendered at runtime.

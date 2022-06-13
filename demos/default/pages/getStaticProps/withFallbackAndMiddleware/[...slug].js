@@ -4,14 +4,18 @@ import Link from 'next/link'
 const Show = ({ show }) => {
   const router = useRouter()
 
-  // This is never shown on Netlify. We just need it for NextJS to be happy,
-  // because NextJS will render a fallback HTML page.
   if (router.isFallback) {
     return <div>Loading...</div>
   }
 
   return (
     <div>
+      <p>This page uses getStaticProps() to pre-fetch a TV show.</p>
+      <p>
+        Paths /my/path/1 and /my/path/2 are prerendered and any other path should show a{' '}
+        <a href="https://nextjs.org/docs/api-reference/data-fetching/get-static-paths#fallback-true">fallback page</a>{' '}
+        while rendering.
+      </p>
       <p>
         Check the network panel for the header <code>x-middleware-date</code> to ensure that it is running
       </p>
