@@ -2,6 +2,7 @@
   "name": "netlify-plugin-nextjs",
   "private": true,
   "description": "Run Next.js seamlessly on Netlify",
+  "version": "4.12.0",
   "scripts": {
     "build:demo": "cd demos/default && npm run build",
     "cy:open": "cypress open --config-file cypress/config/all.json",
