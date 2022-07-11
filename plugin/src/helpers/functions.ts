@@ -19,7 +19,9 @@ export const generateFunctions = async (
   const writeHandler = async (func: string, isODB: boolean) => {
     const handlerSource = await getHandler({ isODB, publishDir, appDir: relative(functionDir, appDir) })
     await ensureDir(join(functionsDir, func))
-    await writeFile(join(functionsDir, func, `${func}.js`), handlerSource)
+    // TODO : will this work?
+    // await writeFile(join(functionsDir, func, `${func}.js`), handlerSource)
+    await writeFile(join(functionsDir, func, `${func}.cjs`), handlerSource)
     await copyFile(bridgeFile, join(functionsDir, func, 'bridge.js'))
     await copyFile(
       join(__dirname, '..', '..', 'lib', 'templates', 'handlerUtils.js'),
